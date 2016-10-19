@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import {Provider, connect} from 'react-redux';
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
+
+import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
 
 import Reducer from './components/Reducer';
 
@@ -11,8 +14,8 @@ import ViewNotes from './pages/ViewNotes';
 import NewNote from './pages/NewNote';
 
 
-
-const store = createStore(Reducer);
+const middleware = applyMiddleware(promise(), thunk);
+const store = createStore(Reducer, middleware);
 
 const app = document.getElementById('app');
 

@@ -14,11 +14,24 @@ class NewNote extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h1>new note</h1>
-                <Note name={this.props.name} />
-                <textarea value={this.props.name} onChange={this.handleChange.bind(this)} />
+            <div class="content pure-u-1 pure-u-md-3-4">
+                <div class="posts">
+                    <h1 class="content-subhead">Pinned Post</h1>
 
+                    <section class="post">
+                        <header class="post-header">
+                            
+                            <h2 class="post-title">
+                                New Note
+                            </h2>
+                        </header>
+
+                        <div class="post-description">
+                            <textarea value={this.props.name} onChange={this.handleChange.bind(this)} />
+                            <Note name={this.props.name} />
+                        </div>
+                    </section>
+                </div>
             </div>
         );
     }
